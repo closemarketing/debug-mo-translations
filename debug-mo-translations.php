@@ -32,6 +32,9 @@ class Debug_MO_Translations_Controller {
 	 */
 	public function setup() {
 
+		if ( defined( 'DOING_AJAX' ) && DOING_AJAX )
+			return;
+
 		if ( ! current_user_can( 'update_core' ) )
 			return;
 
