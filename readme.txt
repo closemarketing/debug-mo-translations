@@ -1,11 +1,11 @@
 === Debug MO Translations ===
-Contributors: closemarketing
+Contributors: closemarketing, davidperez
 Tags: bootstrap, shortcodes, content, ui, bootstrap helper
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZYGC6AT5JFQVE
 Requires at least: 3.0
-Tested up to: 4.3
-Stable tag: 1.0
-Version: 1.0
+Tested up to: 5.4
+Stable tag: 1.1
+Version: 1.1
 
 Debugs all translated files that are loaded and not in Wordpress.
 
@@ -35,8 +35,11 @@ Extract the zip file and just drop the contents in the wp-content/plugins/ direc
 
 == Changelog ==
 
+= 1.1 =
+*	Fixed Return early during AJAX requests by [Nickcernis](https://github.com/nickcernis).
+
 = 1.0 =
-*	First released, created one shortcode.
+*	First released.
 
 == Links ==
 

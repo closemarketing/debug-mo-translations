@@ -3,7 +3,7 @@
  * Plugin Name: Debug MO Translations
  * Description: Get translation data: language, files, possible problems.
  * Plugin URI:  https://github.com/closemarketing/debug-mo-translations
- * Version:     1.0
+ * Version:     1.1
  * Author:      closemarketing
  * Author URI:  https://www.closemarketing.es/
  * Licence:     GPL 2
@@ -32,11 +32,13 @@ class Debug_MO_Translations_Controller {
 	 */
 	public function setup() {
 
-		if ( defined( 'DOING_AJAX' ) && DOING_AJAX )
+		if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
 			return;
+		}
 
-		if ( ! current_user_can( 'update_core' ) )
+		if ( ! current_user_can( 'update_core' ) ) {
 			return;
+		}
 
 		$logger = new Debug_MO_Translations_Logger();
 		$output = new Debug_MO_Translations_Output( $logger );
