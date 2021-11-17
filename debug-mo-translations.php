@@ -151,30 +151,46 @@ class Debug_MO_Translations_Output {
 		list( $name, $version )
 			= get_file_data( __FILE__, array ( 'Plugin Name', 'Version' ) );
 
-		$data = array (
-			'<h3>' . esc_html( $name ) . '</h3>',
-			'<p>' . sprintf(
-				/* translators: %s: Locale code. */
-				esc_html__( 'Locale: %s', 'debug-mo-translations' ),
-				'<code>' . get_locale() . '</code>'
-			) . '</p>',
-			'<p>' . sprintf(
-				/* translators: %s: Version number. */
-				esc_html__( 'Version: %s', 'debug-mo-translations' ),
-				$version
-			) . '</p>',
-		);
-		$data += $this->get_log();
+		$log = $this->get_log();
 
 		?>
 		<style>
 			#wpfooter {
 				position: relative !important;
 			}
+			.wrap.debug-mo-translations {
+				margin-right: 0;
+			}
+			.wrap.debug-mo-translations .notice {
+				padding: 1em 1.5em;
+			}
 		</style>
-		<div class="wrap" style="margin-right: 0">
-			<div class="notice inline is-dismissible" style="padding: 1em 1.5em;">
-				<?php echo join( "\n", $data ); ?>
+		<div class="wrap debug-mo-translations">
+			<div class="notice inline is-dismissible">
+				<h3><?php echo esc_html( $name ); ?></h3>
+				<p>
+					<?php
+					printf(
+						/* translators: %s: Version number. */
+						esc_html__( 'Version: %s', 'debug-mo-translations' ),
+						$version
+					);
+					?>
+				</p>
+				<p>
+					<?php
+					printf(
+						/* translators: %s: Locale code. */
+						esc_html__( 'Locale: %s', 'debug-mo-translations' ),
+						'<code>' . get_locale() . '</code>'
+					);
+					?>
+				</p>
+
+				<?php
+				/* Print log. */
+				echo implode( $log );
+				?>
 			</div>
 		</div>
 		<?php
