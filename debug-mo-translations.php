@@ -152,8 +152,17 @@ class Debug_MO_Translations_Output {
 			= get_file_data( __FILE__, array ( 'Plugin Name', 'Version' ) );
 
 		$data = array (
-			"<b>$name (Version $version)</b>\n",
-			"Locale: " . esc_html( get_locale() ) . "\n"
+			'<h3>' . esc_html( $name ) . '</h3>',
+			'<p>' . sprintf(
+				/* translators: %s: Locale code. */
+				esc_html__( 'Locale: %s', 'debug-mo-translations' ),
+				'<code>' . get_locale() . '</code>'
+			) . '</p>',
+			'<p>' . sprintf(
+				/* translators: %s: Version number. */
+				esc_html__( 'Version: %s', 'debug-mo-translations' ),
+				$version
+			) . '</p>',
 		);
 		$data += $this->get_log();
 
@@ -163,9 +172,10 @@ class Debug_MO_Translations_Output {
 				position: relative !important;
 			}
 		</style>
-		<hr>
 		<div class="wrap" style="margin-right: 0">
-			<pre><?php echo join( "\n", $data ); ?></pre>
+			<div class="notice inline is-dismissible" style="padding: 1em 1.5em;">
+				<?php echo join( "\n", $data ); ?>
+			</div>
 		</div>
 		<?php
 	}
@@ -180,7 +190,9 @@ class Debug_MO_Translations_Output {
 		$logs = $this->logger->get_log();
 
 		if ( empty ( $logs ) )
-			return array ( 'No MO file loaded or logged.' );
+			return array(
+				esc_html__( 'No MO file loaded or logged.', 'debug-mo-translations' )
+			);
 
 		$out = array ();
 
@@ -199,19 +211,42 @@ class Debug_MO_Translations_Output {
 	 */
 	protected function get_formatted_log( Array $log ) {
 
-        if(!isset($log[ 'caller' ][ 'file' ]) ) return '';
+		if ( ! isset( $log[ 'caller' ][ 'file' ]) ) return;
 
-		return sprintf( '
-Domain:    %1$s
-File:      %2$s (%3$s)
-Called in: %4$s line %5$s %6$s',
+		$result = sprintf(
+			'<table class="widefat striped" style="margin: 1em 0;">
+				<tbody>
+					<tr>
+						<td style="width: 1em; white-space: nowrap;"><b>' . esc_html__( 'Domain:', 'debug-mo-translations' ) . '</b></td>
+						<td><code>%1$s</code></td>
+					</tr>
+					<tr>
+						<td style="width: 1em; white-space: nowrap;"><b>' . esc_html__( 'File:', 'debug-mo-translations' ) . '</b></td>
+						<td>%2$s %3$s</td>
+					</tr>
+					<tr>
+						<td style="width: 1em; white-space: nowrap;"><b>' . esc_html__( 'Called in:', 'debug-mo-translations' ) . '</b></td>
+						<td>%4$s %5$s <code>%6$s()</code></td>
+					</tr>
+				</tbody>
+			</table>',
 			$log[ 'domain' ],
 			$log[ 'mofile' ],
-			$log[ 'found' ] ? $log[ 'found' ] . 'kb' : '<b>not found</b>',
+			$log[ 'found' ] ? sprintf(
+				/* translators: %s: Kilobytes amount. */
+				esc_html__( '(%s KB)', 'debug-mo-translations' ),
+				$log[ 'found' ],
+			) : '<b>' . esc_html__( '(Not found)', 'debug-mo-translations' ) . '</b>',
 			$log[ 'caller' ][ 'file' ],
-			$log[ 'caller' ][ 'line' ],
+			sprintf(
+				/* translators: %s: Line number. */
+				esc_html__( '(Line %s)', 'debug-mo-translations' ),
+				$log[ 'caller' ][ 'line' ],
+			),
 			$log[ 'caller' ][ 'function' ]
 		);
+
+		return $result;
 
 	}
 }
