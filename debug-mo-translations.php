@@ -90,7 +90,7 @@ class Debug_MO_Translations_Logger {
 	public function log_file_load( $false, $domain, $mofile ) {
 
 		// DEBUG_BACKTRACE_IGNORE_ARGS is available since 5.3.6
-		if ( version_compare(PHP_VERSION, '5.3.6') >= 0 )
+		if ( version_compare( PHP_VERSION, '5.3.6' ) >= 0 )
 			$trace = debug_backtrace( DEBUG_BACKTRACE_IGNORE_ARGS );
 		else
 			$trace = debug_backtrace();
@@ -99,7 +99,7 @@ class Debug_MO_Translations_Logger {
 			'caller' => $trace[ 4 ], // entry 4 is the calling file
 			'domain' => $domain,
 			'mofile' => $mofile,
-			'found'  => file_exists( $mofile ) ? round( filesize( $mofile ) / 1024, 2 ): FALSE
+			'found'  => file_exists( $mofile ) ? round( filesize( $mofile ) / 1024, 2 ) : FALSE
 		);
 
 		return $false;
@@ -219,7 +219,7 @@ class Debug_MO_Translations_Output {
 			);
 		}
 
-		$out = array ();
+		$out = array();
 
 		foreach ( $logs as $log ) {
 			$out[] = $this->get_formatted_log( $log );
@@ -236,7 +236,9 @@ class Debug_MO_Translations_Output {
 	 */
 	protected function get_formatted_log( Array $log ) {
 
-		if ( ! isset( $log[ 'caller' ][ 'file' ]) ) return;
+		if ( ! isset( $log[ 'caller' ][ 'file' ] ) ) {
+			return;
+		}
 
 		$result = sprintf(
 			'<table class="widefat striped">
