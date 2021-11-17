@@ -215,7 +215,7 @@ class Debug_MO_Translations_Output {
 
 		if ( empty ( $logs ) ) {
 			return array(
-				'<p>' . esc_html__( 'No MO file loaded or logged.', 'debug-mo-translations') . '</p>',
+				'<p>' . esc_html__( 'No MO file loaded or logged.', 'debug-mo-translations' ) . '</p>',
 			);
 		}
 
