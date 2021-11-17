@@ -3,7 +3,7 @@
  * Plugin Name:       Debug MO Translations
  * Description:       Get translation data: language, files, possible problems.
  * Plugin URI:        https://github.com/closemarketing/debug-mo-translations
- * Version:           1.1
+ * Version:           1.2
  * Requires at least: 4.6
  * Author:            closemarketing
  * Author URI:        https://www.closemarketing.es/
