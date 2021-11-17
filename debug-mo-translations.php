@@ -205,10 +205,11 @@ class Debug_MO_Translations_Output {
 
 		$logs = $this->logger->get_log();
 
-		if ( empty ( $logs ) )
+		if ( empty ( $logs ) ) {
 			return array(
-				esc_html__( 'No MO file loaded or logged.', 'debug-mo-translations' )
+				'<p>' . esc_html__( 'No MO file loaded or logged.', 'debug-mo-translations') . '</p>',
 			);
+		}
 
 		$out = array ();
 
