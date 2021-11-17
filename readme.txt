@@ -14,9 +14,6 @@ It gives you more information about all domains and translated mo files loaded i
 
 Only shows the debug info if you're logged in in the footer.
 
-[Official Repository Github](https://github.com/closemarketing/debug-mo-translations).
-Fork and add make suggestions to the plugin!
-
 == Installation ==
 
 Extract the zip file and just drop the contents in the wp-content/plugins/ directory of your WordPress installation and then activate the Plugin from Plugins page.
