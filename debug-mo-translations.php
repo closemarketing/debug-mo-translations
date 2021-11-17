@@ -52,7 +52,14 @@ class Debug_MO_Translations_Controller {
 			3
 		);
 
-		add_action( 'shutdown', array ( $output, 'show' ), 0 );
+		if ( is_admin() ) {
+			/* Print debug in admin. */
+			add_action( 'in_admin_footer', array ( $output, 'show' ), 0 );
+		} else {
+			/* Print debug in frontend. */
+			add_action( 'wp_footer', array ( $output, 'show' ), 0 );
+		}
+
 	}
 }
 
@@ -149,7 +156,17 @@ class Debug_MO_Translations_Output {
 		);
 		$data += $this->get_log();
 
-		print '<div id="wpcontent"><pre>' . join( "\n", $data ) . '</pre></div>';
+		?>
+		<style>
+			#wpfooter {
+				position: relative !important;
+			}
+		</style>
+		<hr>
+		<div class="wrap" style="margin-right: 0">
+			<pre><?php echo join( "\n", $data ); ?></pre>
+		</div>
+		<?php
 	}
 
 	/**
