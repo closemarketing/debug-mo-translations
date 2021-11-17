@@ -1,29 +1,21 @@
 === Debug MO Translations ===
-Contributors: closemarketing, davidperez
+Contributors: closemarketing, davidperez, pedromendonca
 Tags: bootstrap, shortcodes, content, ui, bootstrap helper
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZYGC6AT5JFQVE
+Donate link: https://close.marketing/go/donate/
 Requires at least: 3.0
-Tested up to: 5.4
-Stable tag: 1.1
-Version: 1.1
+Tested up to: 5.8.2
+Stable tag: 1.2
+Version: 1.2
 
 Debugs all translated files that are loaded and not in Wordpress.
 
 == Description ==
 It gives you more information about all domains and translated mo files loaded in the actual installation, so you can debug what's the problem with a plugin, theme, etc.
 
-It's a fork, improved and updated plugin from [Debug Translations Marketpress Plugin](https://marketpress.com/product/debug-translations/)
+Only shows the debug info if you're logged in in the footer.
 
 [Official Repository Github](https://github.com/closemarketing/debug-mo-translations).
 Fork and add make suggestions to the plugin!
-
-Others Plugins:
-- [Gravity Forms CRM Addon](http://codecanyon.net/item/gravity-forms-crm-addon/10521695)
-- [Gravity Forms in Spanish](https://wordpress.org/plugins/gravityforms-es/)
-- [Clean HTML in Editor](https://wordpress.org/plugins/clean-html/)
-- [Send SMS to Wordpress Users via Arsys](https://wordpress.org/plugins/send-sms-arsys/)
-
-Made by [Closemarketing](https://www.closemarketing.es/)
 
 == Installation ==
 
@@ -35,6 +27,10 @@ Extract the zip file and just drop the contents in the wp-content/plugins/ direc
 
 == Changelog ==
 
+= 1.2 =
+*	Contributions from pedromendonca (Thanks!): Use in_admin_footer and wp_frontend hooks instead of shutdown hook and Prepare plugin for i18n.
+*    MultilingualPress supported.
+
 = 1.1 =
 *	Fixed Return early during AJAX requests by [Nickcernis](https://github.com/nickcernis).
 
@@ -42,5 +38,5 @@ Extract the zip file and just drop the contents in the wp-content/plugins/ direc
 *	First released.
 
 == Links ==
-
-*	[Closemarketing](https://www.closemarketing.es/)
+*	[Closemarketing](https://close.marketing/)
+*    [Closemarketing plugins](https://profiles.wordpress.org/closemarketing/#content-plugins)
