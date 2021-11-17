@@ -4,10 +4,12 @@
  * Description: Get translation data: language, files, possible problems.
  * Plugin URI:  https://github.com/closemarketing/debug-mo-translations
  * Version:     1.1
+ * Requires at least: 4.6
  * Author:      closemarketing
  * Author URI:  https://www.closemarketing.es/
  * Licence:     GPL 2
  * License URI: http://opensource.org/licenses/GPL-2.0
+ * Text Domain: debug-mo-translations
  */
 
 /**
