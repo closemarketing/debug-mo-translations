@@ -174,7 +174,7 @@ class Debug_MO_Translations_Output {
 			}
 		</style>
 		<div class="wrap debug-mo-translations">
-			<div class="notice inline is-dismissible">
+			<div class="notice notice-info inline">
 				<h3><?php echo esc_html( $name ); ?></h3>
 				<p>
 					<?php
