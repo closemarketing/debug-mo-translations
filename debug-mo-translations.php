@@ -158,11 +158,19 @@ class Debug_MO_Translations_Output {
 			#wpfooter {
 				position: relative !important;
 			}
-			.wrap.debug-mo-translations {
+			.debug-mo-translations {
 				margin-right: 0;
 			}
-			.wrap.debug-mo-translations .notice {
+			.debug-mo-translations .notice {
 				padding: 1em 1.5em;
+			}
+			.debug-mo-translations table {
+				margin: 1em 0;
+			}
+			.debug-mo-translations table > tbody > tr > :nth-child(1) {
+				width: 1em;
+				white-space: nowrap;
+				font-weight: 600;
 			}
 		</style>
 		<div class="wrap debug-mo-translations">
@@ -231,18 +239,18 @@ class Debug_MO_Translations_Output {
 		if ( ! isset( $log[ 'caller' ][ 'file' ]) ) return;
 
 		$result = sprintf(
-			'<table class="widefat striped" style="margin: 1em 0;">
+			'<table class="widefat striped">
 				<tbody>
 					<tr>
-						<td style="width: 1em; white-space: nowrap;"><b>' . esc_html__( 'Domain:', 'debug-mo-translations' ) . '</b></td>
+						<td>' . esc_html__( 'Domain:', 'debug-mo-translations' ) . '</td>
 						<td><code>%1$s</code></td>
 					</tr>
 					<tr>
-						<td style="width: 1em; white-space: nowrap;"><b>' . esc_html__( 'File:', 'debug-mo-translations' ) . '</b></td>
+						<td>' . esc_html__( 'File:', 'debug-mo-translations' ) . '</td>
 						<td>%2$s %3$s</td>
 					</tr>
 					<tr>
-						<td style="width: 1em; white-space: nowrap;"><b>' . esc_html__( 'Called in:', 'debug-mo-translations' ) . '</b></td>
+						<td>' . esc_html__( 'Called in:', 'debug-mo-translations' ) . '</td>
 						<td>%4$s %5$s <code>%6$s()</code></td>
 					</tr>
 				</tbody>
