@@ -38,7 +38,8 @@ class Debug_MO_Translations_Controller {
 			return;
 		}
 
-		if ( ! current_user_can( 'update_core' ) ) {
+		$user = wp_get_current_user();
+		if ( ! ( current_user_can( 'update_core' ) || $user->allcaps['update_core'] ) ) {
 			return;
 		}
 
