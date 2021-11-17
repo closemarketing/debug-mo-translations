@@ -2,8 +2,8 @@
 Contributors: closemarketing, davidperez, pedromendonca
 Tags: bootstrap, shortcodes, content, ui, bootstrap helper
 Donate link: https://close.marketing/go/donate/
-Tested up to: 5.8.2
 Requires at least: 4.6
+Tested up to: 5.8
 Stable tag: 1.2
 Version: 1.2
 
