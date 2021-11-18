@@ -26,6 +26,15 @@ class Debug_MO_Translations_Controller {
 	 */
 	public function __construct() {
 		add_action( 'plugins_loaded', array( $this, 'setup' ), -1 );
+		add_action( 'plugins_loaded', array( $this, 'language_plugin_init' ) );
+	}
+	/**
+	 * Load localization files
+	 *
+	 * @return void
+	 */
+	public function language_plugin_init() {
+		load_plugin_textdomain( 'Plugin Slug', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 	}
 
 	/**
