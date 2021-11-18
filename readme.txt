@@ -2,10 +2,10 @@
 Contributors: closemarketing, davidperez, pedromendonca
 Tags: bootstrap, shortcodes, content, ui, bootstrap helper
 Donate link: https://close.marketing/go/donate/
-Requires at least: 3.0
+Requires at least: 4.6
 Tested up to: 5.8.2
-Stable tag: 1.2
-Version: 1.2
+Stable tag: 1.3
+Version: 1.3
 
 Debugs all translated files that are loaded and not in Wordpress.
 
@@ -23,6 +23,8 @@ Extract the zip file and just drop the contents in the wp-content/plugins/ direc
 [Official Repository Github](https://github.com/closemarketing/debug-mo-translations)
 
 == Changelog ==
+= 1.3 =
+*	Contributions from pedromendonca (Thanks!): Better output in admin and frontend (see screenshots!).
 
 = 1.2 =
 *	Contributions from pedromendonca (Thanks!): Use in_admin_footer and wp_frontend hooks instead of shutdown hook and Prepare plugin for i18n.
