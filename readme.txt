@@ -38,3 +38,4 @@ Extract the zip file and just drop the contents in the wp-content/plugins/ direc
 == Links ==
 *	[Closemarketing](https://close.marketing/)
 *	[Closemarketing plugins](https://profiles.wordpress.org/closemarketing/#content-plugins)
+*	[Pedro Mendonça](https://twitter.com/pedro_gaspar)
