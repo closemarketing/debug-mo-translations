@@ -1,5 +1,5 @@
 === Debug MO Translations ===
-Contributors: closemarketing, davidperez, pedromendonca
+Contributors: closemarketing, davidperez, pedromendonca, manurelano
 Tags: debug, translations, mo, languages, translate, translation, 
 Donate link: https://close.marketing/go/donate/
 Requires at least: 4.6
@@ -14,6 +14,8 @@ It gives you more information about all domains and translated mo files loaded i
 
 Only shows the debug info if you're logged in in the footer.
 
+You'll have a info of all plugins loaded, textdomain used, if file is found and then the path where is the function of theme or plugin loaded. You can see the screenshots.
+
 == Installation ==
 
 Extract the zip file and just drop the contents in the wp-content/plugins/ directory of your WordPress installation and then activate the Plugin from Plugins page.
@@ -26,6 +28,7 @@ Extract the zip file and just drop the contents in the wp-content/plugins/ direc
 *	Contributions from pedromendonca (Thanks!): Better output in admin and frontend (see screenshots!).
 *    Make translatable the plugin.
 *    PHP Coding standards.
+*    New design for the plugin.
 
 = 1.2 =
 *	Contributions from pedromendonca (Thanks!): Use in_admin_footer and wp_frontend hooks instead of shutdown hook and Prepare plugin for i18n.
