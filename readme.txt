@@ -1,6 +1,6 @@
 === Debug MO Translations ===
 Contributors: closemarketing, davidperez, pedromendonca
-Tags: bootstrap, shortcodes, content, ui, bootstrap helper
+Tags: debug, translations, mo, languages, translate, translation, 
 Donate link: https://close.marketing/go/donate/
 Requires at least: 4.6
 Tested up to: 5.8.2
@@ -24,6 +24,8 @@ Extract the zip file and just drop the contents in the wp-content/plugins/ direc
 == Changelog ==
 = 1.3 =
 *	Contributions from pedromendonca (Thanks!): Better output in admin and frontend (see screenshots!).
+*    Make translatable the plugin.
+*    PHP Coding standards.
 
 = 1.2 =
 *	Contributions from pedromendonca (Thanks!): Use in_admin_footer and wp_frontend hooks instead of shutdown hook and Prepare plugin for i18n.
