@@ -10,6 +10,8 @@
  * Licence:           GPL 2
  * License URI:       http://opensource.org/licenses/GPL-2.0
  * Text Domain:       debug-mo-translations
+ *
+ * @package WordPress
  */
 
 /**
@@ -48,17 +50,17 @@ class Debug_MO_Translations_Controller {
 
 		add_filter(
 			'override_load_textdomain',
-			array ( $logger, 'log_file_load' ),
+			array( $logger, 'log_file_load' ),
 			10,
 			3
 		);
 
 		if ( is_admin() ) {
 			/* Print debug in admin. */
-			add_action( 'in_admin_footer', array ( $output, 'show' ), 0 );
+			add_action( 'in_admin_footer', array( $output, 'show' ), 0 );
 		} else {
 			/* Print debug in frontend. */
-			add_action( 'wp_footer', array ( $output, 'show' ), 0 );
+			add_action( 'wp_footer', array( $output, 'show' ), 0 );
 		}
 
 	}
@@ -82,24 +84,25 @@ class Debug_MO_Translations_Logger {
 	 * Store log data.
 	 *
 	 * @wp-hook override_load_textdomain
-	 * @param   bool $false FALSE, passed though
-	 * @param   string $domain Text domain
+	 * @param   bool   $false FALSE, passed though.
+	 * @param   string $domain Text domain.
 	 * @param   string $mofile Path to file.
 	 * @return  bool
 	 */
 	public function log_file_load( $false, $domain, $mofile ) {
 
-		// DEBUG_BACKTRACE_IGNORE_ARGS is available since 5.3.6
-		if ( version_compare( PHP_VERSION, '5.3.6' ) >= 0 )
-			$trace = debug_backtrace( DEBUG_BACKTRACE_IGNORE_ARGS );
-		else
-			$trace = debug_backtrace();
+		// DEBUG_BACKTRACE_IGNORE_ARGS is available since 5.3.6.
+		if ( version_compare( PHP_VERSION, '5.3.6' ) >= 0 ) {
+			$trace = debug_backtrace( DEBUG_BACKTRACE_IGNORE_ARGS ); //phpcs:ignore
+		} else {
+			$trace = debug_backtrace(); //phpcs:ignore
+		}
 
-		$this->log[] = array (
-			'caller' => $trace[ 4 ], // entry 4 is the calling file
+		$this->log[] = array(
+			'caller' => $trace[4], // entry 4 is the calling file.
 			'domain' => $domain,
 			'mofile' => $mofile,
-			'found'  => file_exists( $mofile ) ? round( filesize( $mofile ) / 1024, 2 ) : FALSE
+			'found'  => file_exists( $mofile ) ? round( filesize( $mofile ) / 1024, 2 ) : false,
 		);
 
 		return $false;
@@ -149,7 +152,7 @@ class Debug_MO_Translations_Output {
 	public function show() {
 
 		list( $name, $version )
-			= get_file_data( __FILE__, array ( 'Plugin Name', 'Version' ) );
+			= get_file_data( __FILE__, array( 'Plugin Name', 'Version' ) );
 
 		$log = $this->get_log();
 
@@ -181,7 +184,7 @@ class Debug_MO_Translations_Output {
 					printf(
 						/* translators: %s: Version number. */
 						esc_html__( 'Version: %s', 'debug-mo-translations' ),
-						$version
+						esc_html( $version )
 					);
 					?>
 				</p>
@@ -190,7 +193,7 @@ class Debug_MO_Translations_Output {
 					printf(
 						/* translators: %s: Locale code. */
 						esc_html__( 'Locale: %s', 'debug-mo-translations' ),
-						'<code>' . get_locale() . '</code>'
+						'<code>' . esc_html( get_locale() ) . '</code>'
 					);
 					?>
 				</p>
@@ -213,7 +216,7 @@ class Debug_MO_Translations_Output {
 
 		$logs = $this->logger->get_log();
 
-		if ( empty ( $logs ) ) {
+		if ( empty( $logs ) ) {
 			return array(
 				'<p>' . esc_html__( 'No MO file loaded or logged.', 'debug-mo-translations' ) . '</p>',
 			);
@@ -231,12 +234,12 @@ class Debug_MO_Translations_Output {
 	/**
 	 * Prettify a log entry
 	 *
-	 * @param  array $log
+	 * @param  array $log Log entry.
 	 * @return string
 	 */
-	protected function get_formatted_log( Array $log ) {
+	protected function get_formatted_log( array $log ) {
 
-		if ( ! isset( $log[ 'caller' ][ 'file' ] ) ) {
+		if ( ! isset( $log['caller']['file'] ) ) {
 			return;
 		}
 
@@ -257,20 +260,20 @@ class Debug_MO_Translations_Output {
 					</tr>
 				</tbody>
 			</table>',
-			$log[ 'domain' ],
-			$log[ 'mofile' ],
-			$log[ 'found' ] ? sprintf(
+			$log['domain'],
+			$log['mofile'],
+			$log['found'] ? sprintf(
 				/* translators: %s: Kilobytes amount. */
 				esc_html__( '(%s KB)', 'debug-mo-translations' ),
-				$log[ 'found' ],
+				$log['found'],
 			) : '<b>' . esc_html__( '(Not found)', 'debug-mo-translations' ) . '</b>',
-			$log[ 'caller' ][ 'file' ],
+			$log['caller']['file'],
 			sprintf(
 				/* translators: %s: Line number. */
 				esc_html__( '(Line %s)', 'debug-mo-translations' ),
-				$log[ 'caller' ][ 'line' ],
+				$log['caller']['line'],
 			),
-			$log[ 'caller' ][ 'function' ]
+			$log['caller']['function']
 		);
 
 		return $result;
@@ -278,4 +281,4 @@ class Debug_MO_Translations_Output {
 	}
 }
 
-new Debug_MO_Translations_Controller;
+new Debug_MO_Translations_Controller();
