@@ -3,15 +3,9 @@ Contributors: closemarketing, davidperez, pedromendonca
 Tags: bootstrap, shortcodes, content, ui, bootstrap helper
 Donate link: https://close.marketing/go/donate/
 Requires at least: 4.6
-<<<<<<< HEAD
 Tested up to: 5.8.2
 Stable tag: 1.3
 Version: 1.3
-=======
-Tested up to: 5.8
-Stable tag: 1.2
-Version: 1.2
->>>>>>> 4a7a8ca3b59e0985e0fd54ee17373a71326647f1
 
 Debugs all translated files that are loaded and not in WordPress.
 
