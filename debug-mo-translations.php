@@ -6,7 +6,7 @@
  * Version:           1.3
  * Requires at least: 4.6
  * Author:            closemarketing
- * Author URI:        https://www.closemarketing.es/
+ * Author URI:        https://close.marketing/
  * Licence:           GPL 2
  * License URI:       http://opensource.org/licenses/GPL-2.0
  * Text Domain:       debug-mo-translations
