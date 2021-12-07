@@ -264,16 +264,16 @@ class Debug_MO_Translations_Output {
 			</table>',
 			$log['domain'],
 			$log['mofile'],
-			$log['found'] ? sprintf(
+			($log['found'] ? sprintf(
 				/* translators: %s: Kilobytes amount. */
 				esc_html__( '(%s KB)', 'debug-mo-translations' ),
-				$log['found'],
-			) : '<b>' . esc_html__( '(Not found)', 'debug-mo-translations' ) . '</b>',
+				$log['found']
+			) : '<b>' . esc_html__( '(Not found)', 'debug-mo-translations' ) . '</b>'),
 			$log['caller']['file'],
 			sprintf(
 				/* translators: %s: Line number. */
 				esc_html__( '(Line %s)', 'debug-mo-translations' ),
-				$log['caller']['line'],
+				$log['caller']['line']
 			),
 			$log['caller']['function']
 		);
