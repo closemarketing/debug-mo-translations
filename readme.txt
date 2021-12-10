@@ -1,11 +1,11 @@
 === Debug MO Translations ===
-Contributors: closemarketing, davidperez, pedromendonca, manurelano
+Contributors: closemarketing, davidperez, pedromendonca, manurelano, mayakokits
 Tags: debug, translations, mo, languages, translate, translation, 
 Donate link: https://close.marketing/go/donate/
 Requires at least: 4.6
-Tested up to: 5.8.2
-Stable tag: 1.3
-Version: 1.3
+Tested up to: 5.9
+Stable tag: 1.4
+Version: 1.4
 
 Debugs all translated files that are loaded and not in WordPress.
 
@@ -24,11 +24,15 @@ Extract the zip file and just drop the contents in the wp-content/plugins/ direc
 [Official Repository GitHub](https://github.com/closemarketing/debug-mo-translations)
 
 == Changelog ==
+= 1.4 =
+*	Fix load self translations.
+*	PHP Coding standards by [mayakokits](https://github.com/mayakokits).
+
 = 1.3 =
 *	Contributions from pedromendonca (Thanks!): Better output in admin and frontend (see screenshots!).
-*    Make translatable the plugin.
-*    PHP Coding standards.
-*    New design for the plugin.
+*	Make translatable the plugin.
+*	PHP Coding standards.
+*	New design for the plugin.
 
 = 1.2 =
 *	Contributions from pedromendonca (Thanks!): Use in_admin_footer and wp_frontend hooks instead of shutdown hook and Prepare plugin for i18n.
