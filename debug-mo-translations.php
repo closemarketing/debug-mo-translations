@@ -26,6 +26,7 @@ class Debug_MO_Translations_Controller {
 	 */
 	public function __construct() {
 		add_action( 'plugins_loaded', array( $this, 'setup' ), -1 );
+		add_action( 'init', array( $this, 'load_translations' ), 10 );
 	}
 
 	/**
@@ -35,8 +36,6 @@ class Debug_MO_Translations_Controller {
 	 * @return  void
 	 */
 	public function setup() {
-		// Load language.
-		load_plugin_textdomain( 'debug-mo-translations', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 
 		if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
 			return;
@@ -65,6 +64,16 @@ class Debug_MO_Translations_Controller {
 			add_action( 'wp_footer', array( $output, 'show' ), 0 );
 		}
 
+	}
+
+	/**
+	 * Load translations
+	 *
+	 * @return void
+	 */
+	public function load_translations() {
+		// Load language.
+		load_plugin_textdomain( 'debug-mo-translations', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 	}
 }
 
