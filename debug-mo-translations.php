@@ -263,7 +263,11 @@ class Debug_MO_Translations_Output {
 					</tr>
 					<tr>
 						<td>' . esc_html__( 'File:', 'debug-mo-translations' ) . '</td>
-						<td>%2$s %3$s</td>
+						<td>%2$s</td>
+					</tr>
+					<tr>
+						<td>' . esc_html__( 'Result:', 'debug-mo-translations' ) . '</td>
+						<td>%3$s</td>
 					</tr>
 					<tr>
 						<td>' . esc_html__( 'Called in:', 'debug-mo-translations' ) . '</td>
