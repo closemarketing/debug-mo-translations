@@ -3,7 +3,7 @@
  * Plugin Name:       Debug MO Translations
  * Description:       Get translation data: language, files, possible problems.
  * Plugin URI:        https://github.com/closemarketing/debug-mo-translations
- * Version:           1.4
+ * Version:           1.3.2
  * Requires at least: 4.6
  * Author:            closemarketing
  * Author URI:        https://close.marketing/
@@ -63,7 +63,6 @@ class Debug_MO_Translations_Controller {
 			/* Print debug in frontend. */
 			add_action( 'wp_footer', array( $output, 'show' ), 0 );
 		}
-
 	}
 
 	/**
@@ -137,18 +136,18 @@ class Debug_MO_Translations_Logger {
  * @author toscho
  */
 class Debug_MO_Translations_Output {
-
 	/**
 	 * The data model
 	 *
 	 * @type Debug_MO_Translations_Logger
+	 * @var Debug_MO_Translations_Logger
 	 */
 	protected $logger;
 
 	/**
 	 * Constructor.
 	 *
-	 * @param Debug_MO_Translations_Logger $logger
+	 * @param Debug_MO_Translations_Logger $logger The data model.
 	 */
 	public function __construct( Debug_MO_Translations_Logger $logger ) {
 		$this->logger = $logger;
@@ -292,7 +291,6 @@ class Debug_MO_Translations_Output {
 		);
 
 		return $result;
-
 	}
 }
 
